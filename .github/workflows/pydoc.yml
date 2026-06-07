@@ -18,8 +18,8 @@ jobs:
       - name: Generate Pydoc
         run: |
           cd my_site
-          python -m pydoc -w blog.views
-          python -m pydoc -w blog.models
+          python -m pydoc -w blog/views.py
+          python -m pydoc -w blog/models.py
       - name: Commit docs
         run: |
           git config --global user.email "action@github.com"
