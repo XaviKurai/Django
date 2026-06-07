@@ -17,8 +17,9 @@ jobs:
         run: pip install -r requirements.txt
       - name: Generate Pydoc
         run: |
-          python -m pydoc -w blog/views
-          python -m pydoc -w blog/models
+          cd my_site
+          python -m pydoc -w blog.views
+          python -m pydoc -w blog.models
       - name: Commit docs
         run: |
           git config --global user.email "action@github.com"
