@@ -39,3 +39,7 @@ Accedeix a: http://127.0.0.1:8000
 - `/authors/<id>` - Detall d'un autor
 - `/tags` - Llistat de tags
 - `/tags/<id>` - Posts d'una tag
+
+## Documentació Pydoc
+- [blog.views](blob/main/blog.views.html)
+- [blog.models](blob/main/blog.models.html)
