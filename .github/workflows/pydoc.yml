@@ -7,6 +7,8 @@ on:
 jobs:
   pydoc:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -35,3 +37,5 @@ jobs:
           git add *.html
           git commit -m "generate pydoc" || echo "No changes"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
