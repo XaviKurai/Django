@@ -1,0 +1,28 @@
+name: Generate Pydoc
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  pydoc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Generate Pydoc
+        run: |
+          python -m pydoc -w blog/views
+          python -m pydoc -w blog/models
+      - name: Commit docs
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add *.html
+          git commit -m "generate pydoc" || echo "No changes"
+          git push
