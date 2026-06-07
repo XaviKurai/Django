@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <h1>Tots els posts</h1>
+    <p>Aquesta és la pagina per visualitzar tots els posts</p>
+    <div class="row">
+        {% for post in posts %}
+            <div class="col">
+                {% include "blog/includes/post-card.html" with post=post %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

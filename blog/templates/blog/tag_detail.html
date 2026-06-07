@@ -1,0 +1,8 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h1>Posts amb l'etiqueta: {{ tag.tag }}</h1>
+    {% for post in tag.post_set.all %}
+        <p><a href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a></p>
+    {% endfor %}
+{% endblock %}
